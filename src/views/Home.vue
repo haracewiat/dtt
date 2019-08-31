@@ -37,8 +37,8 @@ export default class extends Vue {
   public feed: Log[] = [];
 
   public created() {
-    logs.refreshGlobalFeed().then(() => {
-      this.feed = logs.globalFeed;
+    logs.refreshFeed('global').then(() => {
+      this.feed = logs.feed;
     });
   }
 }

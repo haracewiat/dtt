@@ -9,3 +9,7 @@ export async function getGlobalFeed() {
     const response = await AppApi.get('/entries');
     return response.data as LogsResponse;
 }
+export async function getRandomFeed() {
+    const response = await AppApi.get('/random');
+    return response.data as LogsResponse;
+}
