@@ -38,6 +38,12 @@ class LogsModule extends VuexModule {
         const globalFeed = await api.fetchDetails(description);
         return globalFeed.entries;
     }
+
+    @Action({commit: 'setDetails'})
+    public async loadSimilar(category: string) {
+        const globalFeed = await api.fetchSimilar(category);
+        return globalFeed.entries;
+    }
 }
 
 export default getModule(LogsModule);

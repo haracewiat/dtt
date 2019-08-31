@@ -17,3 +17,7 @@ export async function fetchDetails(description: string) {
     const response = await AppApi.get('/entries?description=' + description);
     return response.data as DetailsResponse;
 }
+export async function fetchSimilar(category: string) {
+    const response = await AppApi.get('/entries?category=' + category);
+    return response.data as LogsResponse;
+}

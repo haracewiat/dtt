@@ -1,18 +1,30 @@
 <template>
-     <div class="container page">
+  <div class="container page">
 
     <div class="row">
-      <div class="col-md-9">
-      
-      <LogPreview
-      v-for="log in feed"
-      :log="log"
-      :key="log.Category"
-      ></LogPreview>
-
-
-      </div>
+        <div class="col-md-9">
+            <LogPreview
+            v-for="log in feed"
+            :log="log"
+            :key="log.Category"
+            ></LogPreview>
+        </div>
     </div>
+
+
+
+    <div class="row">
+        <h1>Similar:</h1>
+    </div>
+
+    <div class="row">
+            <LogPreview class="col-md-4" 
+            v-for="log in feedSimilar.slice(0,3)"
+            :log="log"
+            :key="log.Category"
+            ></LogPreview>
+    </div>
+
   </div>
 </template>
 
@@ -31,10 +43,15 @@ import { LogsResponse } from '@/store/models';
 })
  export default class Details extends Vue {
       public feed: Log[] = [];
+      public feedSimilar: Log[] = [];
 
      public created() {
         logs.loadDetails(this.$route.path.slice(1)).then(() => {
         this.feed = logs.feed;
+        });
+
+        logs.loadSimilar(this.$attrs.category).then(() => {
+        this.feedSimilar = logs.feed;
         });
      }
  }
