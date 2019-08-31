@@ -18,10 +18,16 @@
       </div>
       
 
+      <div class="col-md-3">
+        <div class="sidebar">
+          <button v-on:click='random'>Random</button>
+        </div>
+      </div>
+
 
     </div>
 
-    <button v-on:click='random'>Random</button>
+
   </div>
 
 </div>

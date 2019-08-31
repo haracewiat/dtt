@@ -8,6 +8,9 @@
             :log="log"
             :key="log.Category"
             ></LogPreview>
+            <h5>Additional information:</h5>
+            <h6>API: {{this.$attrs.API}}</h6>
+            <h6>Source: {{this.$attrs.link}}</h6>
         </div>
     </div>
 
@@ -32,6 +35,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import LogPreview from '@/components/logs/LogPreview.vue';
+import LogPreviewDetailed from '@/components/logs/LogPreviewDetailed.vue';
 import logs from '@/store/modules/logs';
 import { Log } from '@/store/models';
 import { LogsResponse } from '@/store/models';

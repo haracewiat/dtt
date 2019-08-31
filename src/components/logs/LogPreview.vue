@@ -1,11 +1,6 @@
 <template>
     <div class="article-preview">
-        <div class="article-meta">
-        <a href="profile.html"><img src="http://i.imgur.com/Qr71crq.jpg" /></a>
-        <div class="info">
-            <a href="" class="author">{{log.Auth}}</a>
-        </div>
-        </div>
+        
         <router-link :to="{name: 'Details', 
                            params: {
                             description: log.Description, 
@@ -14,9 +9,10 @@
                             link: log.Link,
                             Auth: log.Auth,
                             }}">
-            <p>{{log.Category}}</p>
-            <p>{{log.Description}}</p>
-            <span>Read more...</span>
+            <h1>{{log.Description}}</h1>
+            <h5>{{log.Category}}</h5>
+            <p>{{log.Auth}}</p>
+                       
         </router-link>
     </div>
 </template>
