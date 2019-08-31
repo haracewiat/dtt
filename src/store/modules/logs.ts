@@ -10,17 +10,22 @@ import * as api from '@/store/api';
     store,
 })
 class LogsModule extends VuexModule {
-    public globalFeed: Log[] = [];
+    public feed: Log[] = [];
 
     @Mutation
-    public setGlobalFeed(logs: Log[]) {
-        this.globalFeed = logs;
+    public setFeed(logs: Log[]) {
+        this.feed = logs;
     }
 
-    @Action({commit: 'setGlobalFeed'})
-    public async refreshGlobalFeed() {
-        const globalFeed = await api.getGlobalFeed();
-        return globalFeed.entries;
+    @Action({commit: 'setFeed'})
+    public async refreshFeed(FeedType: string) {
+        if (FeedType === 'global') {
+            const globalFeed = await api.getGlobalFeed();
+            return globalFeed.entries;
+        } else if (FeedType === 'random') {
+            const globalFeed = await api.getRandomFeed();
+            return globalFeed.entries;
+        }
     }
 }
 
