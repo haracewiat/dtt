@@ -11,5 +11,11 @@ export default new Router({
       name: 'home',
       component: Home,
     },
+    {
+      path: '/:description',
+      name: 'Details',
+      props: true,
+      component: () => import('@/views/Details.vue'),
+    },
   ],
 });

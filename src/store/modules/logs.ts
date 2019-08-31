@@ -1,6 +1,6 @@
 import { Module, VuexModule, getModule, Mutation, Action } from 'vuex-module-decorators';
 import store from '@/store';
-import { Log } from '../models';
+import { Log, DetailsResponse } from '../models';
 import * as api from '@/store/api';
 
 @Module({
@@ -17,6 +17,11 @@ class LogsModule extends VuexModule {
         this.feed = logs;
     }
 
+    @Mutation
+    public setDetails(logs: Log[]) {
+        this.feed = logs;
+    }
+
     @Action({commit: 'setFeed'})
     public async refreshFeed(FeedType: string) {
         if (FeedType === 'global') {
@@ -26,6 +31,12 @@ class LogsModule extends VuexModule {
             const globalFeed = await api.getRandomFeed();
             return globalFeed.entries;
         }
+    }
+
+    @Action({commit: 'setDetails'})
+    public async loadDetails(description: string) {
+        const globalFeed = await api.fetchDetails(description);
+        return globalFeed.entries;
     }
 }
 

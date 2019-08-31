@@ -3,21 +3,21 @@
         <div class="article-meta">
         <a href="profile.html"><img src="http://i.imgur.com/Qr71crq.jpg" /></a>
         <div class="info">
-            <a href="" class="author">Anthony Willens</a>
-            <span class="date">January 20th</span>
+            <a href="" class="author">{{log.Auth}}</a>
         </div>
-        <button class="btn btn-outline-primary btn-sm pull-xs-right">
-            <i class="ion-heart"></i> 29
-        </button>
         </div>
-        <a href="" class="preview-link">
-        <p>{{log.Category}}</p>
-        <p>{{log.Description}}</p>
-        <p>{{log.API}}</p>
-        <p>{{log.Link}}</p>
-        <p>{{log.Auth}}</p>
-        <span>Read more...</span>
-        </a>
+        <router-link :to="{name: 'Details', 
+                           params: {
+                            description: log.Description, 
+                            category: log.Category, 
+                            API: log.API,
+                            link: log.Link,
+                            Auth: log.Auth,
+                            }}">
+            <p>{{log.Category}}</p>
+            <p>{{log.Description}}</p>
+            <span>Read more...</span>
+        </router-link>
     </div>
 </template>
 

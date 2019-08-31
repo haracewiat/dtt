@@ -1,32 +1,19 @@
 <template>
-
-  <div class="home-page">
-
-  <div class="container page">
+     <div class="container page">
 
     <div class="row">
-
-
       <div class="col-md-9">
       
       <LogPreview
-      v-for="log in feed.slice(0, 10)"
+      v-for="log in feed"
       :log="log"
-      :key="log.Title"
+      :key="log.Category"
       ></LogPreview>
 
+
       </div>
-      
-
-
     </div>
-
-    <button v-on:click='random'>Random</button>
   </div>
-
-</div>
-
-
 </template>
 
 
@@ -42,19 +29,13 @@ import { LogsResponse } from '@/store/models';
     LogPreview,
   },
 })
-export default class extends Vue {
-  public feed: Log[] = [];
+ export default class Details extends Vue {
+      public feed: Log[] = [];
 
-  public created() {
-    logs.refreshFeed('global').then(() => {
-      this.feed = logs.feed;
-    });
-  }
-
-  public random() {
-    logs.refreshFeed('random').then(() => {
-      this.feed = logs.feed;
-    });
-  }
-}
+     public created() {
+        logs.loadDetails(this.$route.path.slice(1)).then(() => {
+        this.feed = logs.feed;
+        });
+     }
+ }
 </script>
