@@ -13,6 +13,10 @@ export async function getRandomFeed() {
     const response = await AppApi.get('/random');
     return response.data as LogsResponse;
 }
+export async function getCategories() {
+    const response = await AppApi.get('/categories');
+    return response.data as DetailsResponse;
+}
 export async function fetchDetails(description: string) {
     const response = await AppApi.get('/entries?description=' + description);
     return response.data as DetailsResponse;
