@@ -6,13 +6,20 @@ export interface LogsResponse {
 
 export interface Log {
     API: string;
-    Title: string;
     Description: string;
     Auth?: string | null;
     HTTPS: boolean;
     Cors: string;
     Link: string;
     Category: string;
+}
+
+export interface Category {
+    category: string;
+}
+
+export interface CategoriesResponse {
+    entries?: Category[] | null;
 }
 
 export interface DetailsResponse {

@@ -16,7 +16,7 @@
 
 
 
-    <div class="row">
+    <div class="row similar">
         <h1>Similar:</h1>
     </div>
 

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LogsResponse, DetailsResponse } from './models';
+import { LogsResponse, DetailsResponse, CategoriesResponse } from './models';
 
 export const AppApi = axios.create({
     baseURL: 'https://api.publicapis.org/',
@@ -15,7 +15,7 @@ export async function getRandomFeed() {
 }
 export async function getCategories() {
     const response = await AppApi.get('/categories');
-    return response.data as DetailsResponse;
+    return response.data as CategoriesResponse;
 }
 export async function fetchDetails(description: string) {
     const response = await AppApi.get('/entries?description=' + description);

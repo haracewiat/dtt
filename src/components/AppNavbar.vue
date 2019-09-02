@@ -20,9 +20,9 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import LogPreview from '@/components/logs/LogPreview.vue';
-import logs from '@/store/modules/logs';
-import { Log } from '@/store/models';
-import { LogsResponse } from '@/store/models';
+import categories from '@/store/modules/categories';
+import { Log, Category } from '@/store/models';
+import { LogsResponse, CategoriesResponse } from '@/store/models';
 import * as api from '@/store/api';
 
 @Component({
@@ -31,11 +31,11 @@ import * as api from '@/store/api';
   },
 })
 export default class extends Vue {
-  public categories: Log[] = [];
+  public categories: Category[] = [];
 
   public created() {
-    api.getCategories().then(() => {
-      // add function
+    categories.loadCategories().then(() => {
+      this.categories = categories.categories;
     });
   }
 }
