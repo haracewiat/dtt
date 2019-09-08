@@ -1,22 +1,24 @@
 <template>
-  <div>
-  
+  <div class='container'>
+    <button v-on:click='sortById()' type="button" class="btn btn-light" :class="{'active' : activeID}" >
+      ID 
+      <i :class="[{'fas fa-long-arrow-alt-down' : !sortedAscendingID}, {'fas fa-long-arrow-alt-up' : sortedAscendingID}]"></i>
+    </button>
+    <button v-on:click='sortByAuthor()' type="button" class="btn btn-light" :class="{'active' : !activeID}">
+      Author
+      <i :class="[{'fas fa-long-arrow-alt-down' : !sortedAscendingAuthor}, {'fas fa-long-arrow-alt-up' : sortedAscendingAuthor}]"></i>
+    </button>
 
-      
-      <LogPreview
+    <div class='row'>
+
+      <LogPreview class='card col-md-4'
       v-for="log in feed"
       :log="log"
       :key="log.id"
       ></LogPreview>
      
-     <!--
-     <img 
-      v-for="log in feed" 
-      v-bind:src="log.download_url" 
-      :key="log.id"/>
-      -->
-      
-  </div>
+    </div>   <!-- End of row -->
+  </div>   <!-- End of container -->
 
 
   
@@ -36,10 +38,38 @@ import logs from '../api/logs';
 })
 export default class extends Vue {
   public feed: Log[] = [];
+  public sortedAscendingID: boolean = true;
+  public sortedAscendingAuthor: boolean = false;
+  public activeID: boolean = true;
+
   public created() {
     logs.refreshGlobalFeed().then(() => {
       this.feed = logs.globalFeed;
     });
+  }
+  public sortById() {
+    if (this.sortedAscendingID) {
+      this.feed.sort((a, b) => a.id > b.id ? -1 : 1);
+      this.sortedAscendingID = false;
+    } else {
+      this.feed.sort((a, b) => a.id < b.id ? -1 : 1);
+      this.sortedAscendingID = true;
+    }
+    if (!this.activeID) {
+      this.activeID = true;
+    }
+  }
+  public sortByAuthor() {
+    if (this.sortedAscendingAuthor) {
+      this.feed.sort((a, b) => a.author > b.author ? -1 : 1);
+      this.sortedAscendingAuthor = false;
+    } else {
+      this.feed.sort((a, b) => a.author < b.author ? -1 : 1);
+      this.sortedAscendingAuthor = true;
+    }
+    if (this.activeID) {
+      this.activeID = false;
+    }
   }
 }
 </script> 
