@@ -1,10 +1,8 @@
 <template>
     <div class="logPreview">
-        <p>{{log.id}}</p>
+        <img class='picture' :src="log.download_url"/>
         <p>{{log.author}}</p>
-        <!--
-            <img :src="log.download_url"/>
-        -->
+        <p>{{log.id}}</p>
     </div>
 </template>
 
