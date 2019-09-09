@@ -43,8 +43,8 @@ export default class extends Vue {
   public activeID: boolean = true;
 
   public created() {
-    logs.refreshGlobalFeed().then(() => {
-      this.feed = logs.globalFeed;
+    logs.refreshFeed('global').then(() => {
+      this.feed = logs.feed;
     });
   }
   public sortById() {

@@ -1,7 +1,8 @@
 import { Module, VuexModule, getModule, Mutation, Action } from 'vuex-module-decorators';
 import store from '@/store';
-import { Log } from '@/api/models';
+import { Log, RandomResponse } from '@/api/models';
 import * as api from '@/api/api';
+type FeedType= 'global' | 'random';
 
 @Module({
     dynamic: true,
@@ -9,18 +10,25 @@ import * as api from '@/api/api';
     name: 'logs',
     store,
 })
+
 class LogsModule extends VuexModule {
-    public globalFeed: Log[] = [];
+    public feed: Log[] = [];
 
     @Mutation
-    public setGlobalFeed(logs: Log[]) {
-        this.globalFeed = logs;
+    public setFeed(logs: Log[]) {
+        this.feed = logs;
     }
 
-    @Action({commit: 'setGlobalFeed'})
-    public async refreshGlobalFeed() {
-        const globalFeed = await api.getGlobalFeed();
-        return globalFeed;
+    @Action({commit: 'setFeed'})
+    public async refreshFeed(feedType: FeedType) {
+        if (feedType === 'global') {
+            const feed = await api.getGlobalFeed();
+            return feed;
+        }
+        if (feedType === 'random') {
+            const random = await api.getRandom();
+            return random;
+        }
     }
 }
 
