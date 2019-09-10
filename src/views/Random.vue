@@ -5,6 +5,9 @@
        <img :src='url'>
      
     </div>   <!-- End of row -->
+
+    <button v-on:click='shuffle()' type="button" class="btn btn-success">Shuffle</button>
+
   </div>   <!-- End of container -->
 </template>
 
@@ -24,8 +27,20 @@ import logs from '../api/logs';
 export default class extends Vue {
   public url: string = '';
   public feed: Log[] = [];
+  public id: string = '';
 
   public async created() {
+  // call function shuffle to avoid repeats
+    const randomUrl = await logs.refreshFeed('random');
+    if (randomUrl !== undefined) {
+        this.url = randomUrl.toString();
+        this.id = this.url.replace( /\D+/g, '');
+        this.id = this.id.replace( /600400/g, '');
+        logs.getSimilar(this.id);
+    }
+  }
+  public async shuffle() {
+    // further function to make it reusable
     const randomUrl = await logs.refreshFeed('random');
     if (randomUrl !== undefined) {
         this.url = randomUrl.toString();

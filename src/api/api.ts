@@ -11,6 +11,13 @@ export async function getGlobalFeed() {
 }
 
 export async function getRandom() {
-    const response = await AppApi.get('/500/400');
+    const response = await AppApi.get('/600/400');
     return response.request.responseURL as RandomResponse;
+}
+
+export async function getSimilar(id: string) {
+    const response1 = await AppApi.get('/id/' + id + '/600/400?grayscale');
+    const response2 = await AppApi.get('/id/' + id + '/600/400?blur');
+    const response3 = await AppApi.get('/id/' + id + '/600/400?grayscale&blur');
+    // return as an array and display images on the Random page
 }

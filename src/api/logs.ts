@@ -30,6 +30,10 @@ class LogsModule extends VuexModule {
             return random;
         }
     }
+    @Action({})
+    public async getSimilar(id: string) {
+        const link = await api.getSimilar(id);
+    }
 }
 
 export default getModule(LogsModule);
