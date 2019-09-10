@@ -1,11 +1,14 @@
 <template>
     <div class="logPreview">
+        <router-link :to="{name: 'details', params: {log: log, id: log.id}}"> 
         <p>{{log.id}}</p>
         <p>{{log.author}}</p>
         <!--
             <img :src="log.download_url"/>
         -->
+        </router-link>
     </div>
+        
 </template>
 
 <script lang="ts">

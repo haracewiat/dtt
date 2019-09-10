@@ -21,5 +21,11 @@ export default new Router({
       name: 'random',
       component: () => import('./views/Random.vue'),
     },
+    {
+      path: '/:id',
+      name: 'details',
+      props: true,
+      component: () => import('./views/Details.vue'),
+    },
   ],
 });
