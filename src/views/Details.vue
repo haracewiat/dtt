@@ -1,12 +1,27 @@
 <template>
   <div class='container'>
     <div class='row'>
-
-       <p>Details: {{this.$attrs.log}}</p>
-       <img :src="this.$attrs.log.download_url + '?grayscale'"/>
-     
+      <div class="col-md-6">
+        <img style="width:500px;height:auto;" :src="this.$attrs.log.download_url"/>
+      </div>
+      <div class="col-md-6">
+        <h1>by {{this.$attrs.log.author}}</h1>
+        <p>Original size: {{this.$attrs.log.width}} x {{this.$attrs.log.height}}</p>
+        <p>Source: {{this.$attrs.log.url}}</p>
+        <p>ID: {{this.$attrs.log.id}}</p>
+      </div> 
+    <div class="row">
+      <div class="col-md-4 col-sm-6">
+        <img class="small" :src="this.$attrs.log.download_url + '?grayscale'"/>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <img class="small" :src="this.$attrs.log.download_url + '?blur=10'"/>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <img class="small" :src="this.$attrs.log.download_url + '?grayscale&blur=10'"/>
+      </div>
+    </div>
     </div>   <!-- End of row -->
-
   </div>   <!-- End of container -->
 </template>
 
@@ -30,3 +45,11 @@ export default class extends Vue {
   }
 }
 </script> 
+
+
+<style>
+.small{
+  width: 300px;
+  height: auto;
+}
+</style>

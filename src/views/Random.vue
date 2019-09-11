@@ -1,15 +1,45 @@
 <template>
   <div class='container'>
-    <div class='row'>
-
-       <img :src='url'>
-     
+    <div class='row  justify-content-around'>
+      <div class="col-md-6">
+          <img :src='url'>
+      </div> 
+      <div class="col-md-6 align-self-center">
+        <div class="row justify-content-md-center">
+          <div id="randomMessage">
+            <div class="h3">
+              You can't decide which picture to pick?
+            </div>
+            <div class="h2">
+              Let us decide for you!
+            </div>
+            <p>
+              Here you will find a random picture from our database.  
+              You can click it to see more information and other variations of the image. 
+            </p>
+            <div class="h4">
+              Not happy with the pick?
+            </div>
+            <div class="h4">
+              Try again!
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center align-self-end">
+          <button v-on:click='shuffle()' type="button" class="btn btn-success">Shuffle!</button>
+        </div>
+      </div>   
     </div>   <!-- End of row -->
-
-    <button v-on:click='shuffle()' type="button" class="btn btn-success">Shuffle</button>
-
   </div>   <!-- End of container -->
 </template>
+
+<style>
+#randomMessage{
+  margin: 3%;
+}
+</style>
+
+
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
@@ -35,7 +65,7 @@ export default class extends Vue {
     if (randomUrl !== undefined) {
         this.url = randomUrl.toString();
         this.id = this.url.replace( /\D+/g, '');
-        this.id = this.id.replace( /600400/g, '');
+        this.id = this.id.replace( /500300/g, '');
         logs.getSimilar(this.id);
     }
   }

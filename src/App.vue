@@ -1,9 +1,12 @@
 <template>
-  <div id="app">
+  <div id="app" class="container-fluid">
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/random">Random</router-link>
+      <router-link to="/random">Random</router-link> |
+      <router-link to="/grayscale">Grayscale</router-link> |
+      <router-link to="/blur">Blur</router-link>
+      
     </div>
     <router-view/>
   </div>

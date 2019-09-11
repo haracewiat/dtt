@@ -11,11 +11,11 @@
 
     <div class='row'>
 
-      <LogPreview class='card col-md-4'
+      <LogPreviewGrayscale class='card col-md-4'
       v-for="log in feed"
       :log="log"
       :key="log.id"
-      ></LogPreview>
+      ></LogPreviewGrayscale>
      
     </div>   <!-- End of row -->
   </div>   <!-- End of container -->
@@ -28,6 +28,7 @@
 .card img{
   width: 300px;
   height: 200px;
+  object-fit: cover;
 }
 a{
   text-decoration: none;
@@ -37,13 +38,13 @@ a{
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import HelloWorld from '@/components/HelloWorld.vue';
-import LogPreview from '@/components/LogPreview.vue';
+import LogPreviewGrayscale from '@/components/LogPreviewGrayscale.vue';
 import { LogsResponse, Log } from '../api/models';
 import logs from '../api/logs';
 @Component({
   components: {
     HelloWorld,
-    LogPreview,
+    LogPreviewGrayscale,
   },
 })
 export default class extends Vue {
