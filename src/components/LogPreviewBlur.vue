@@ -1,7 +1,7 @@
 <template>
-    <div class="logPreviewGrayscale">
-        <router-link :to="{name: 'details', params: {log: log, id: log.id, type: 'grayscale'}}"> 
-        <img :src="log.download_url + '?grayscale'"/>
+    <div class="logPreviewBlur">
+        <router-link :to="{name: 'details', params: {log: log, id: log.id, type: 'blur'}}"> 
+        <img :src="log.download_url + '?blur=10'"/>
         <div class="row">
             <div class="mr-auto author">{{log.author}}</div>
             <div class="id">{{log.id}}</div>
@@ -21,7 +21,7 @@ width: fit-content;
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import { Log } from '@/api/models';
 @Component
-export default class LogPreviewGrayScale extends Vue {
+export default class LogPreviewBlur extends Vue {
     @Prop() public log?: Log;
 }
 </script> 

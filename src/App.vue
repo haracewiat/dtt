@@ -1,15 +1,23 @@
 <template>
   <div id="app" class="container-fluid">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/random">Random</router-link> |
-      <router-link to="/grayscale">Grayscale</router-link> |
-      <router-link to="/blur">Blur</router-link>
-      
-    </div>
+      <span><router-link to="/">Home</router-link> | </span>
+      <span><router-link to="/about">About</router-link> | </span>
+      <span><router-link to="/random">Random</router-link> | </span>
+      <span>
+        <div class="dropdown">
+          <span class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categories
+          </span>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <router-link to="/grayscale" class="dropdown-item">Grayscale</router-link> |
+            <router-link to="/blur" class="dropdown-item">Blur</router-link>
+          </div>   <!-- End of .dropdown-menu -->
+        </div>   <!-- End of .dropdown -->
+      </span>
+    </div>   <!-- End of #nav -->
     <router-view/>
-  </div>
+  </div>   <!-- End of #app -->
 </template>
 
 <style>
@@ -24,7 +32,7 @@
   padding: 30px;
 }
 
-#nav a {
+#nav a, span {
   font-weight: bold;
   color: #2c3e50;
 }

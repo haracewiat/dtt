@@ -1,6 +1,6 @@
 <template>
     <div class="logPreview">
-        <router-link :to="{name: 'details', params: {log: log, id: log.id}}"> 
+        <router-link :to="{name: 'details', params: {log: log, id: log.id, type: 'normal'}}"> 
         <img :src="log.download_url"/>
         <div class="row">
             <div class="mr-auto author">{{log.author}}</div>
