@@ -22,16 +22,6 @@ export default new Router({
       component: () => import('./views/Random.vue'),
     },
     {
-      path: '/grayscale',
-      name: 'grayscale',
-      component: () => import('./views/Grayscale.vue'),
-    },
-    {
-      path: '/blur',
-      name: 'blur',
-      component: () => import('./views/Blur.vue'),
-    },
-    {
       path: '/:id',
       name: 'details',
       props: true,

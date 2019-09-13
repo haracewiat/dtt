@@ -1,24 +1,28 @@
 <template>
   <div class='container'>
-    <button v-on:click='sortById()' type="button" class="btn btn-light" :class="{'active' : activeID}" >
-      ID 
-      <i :class="[{'fas fa-long-arrow-alt-down' : !sortedAscendingID}, {'fas fa-long-arrow-alt-up' : sortedAscendingID}]"></i>
-    </button>
-    <button v-on:click='sortByAuthor()' type="button" class="btn btn-light" :class="{'active' : !activeID}">
-      Author
-      <i :class="[{'fas fa-long-arrow-alt-down' : !sortedAscendingAuthor}, {'fas fa-long-arrow-alt-up' : sortedAscendingAuthor}]"></i>
-    </button>
-
-    <p>Select type: </p>
-    <button v-on:click="setType('grayscale')" type="button" class="btn btn-light">
-      Grayscale
-    </button>
-    <button v-on:click="setType('normal')" type="button" class="btn btn-light">
-      Normal
-    </button>
-    <button v-on:click="setType('blur')" type="button" class="btn btn-light">
-      Blur
-    </button>
+    <div class="row">
+      <div class="col">
+        <button v-on:click='sortById()' type="button" class="btn btn-light" :class="{'active' : activeID}" >
+          ID 
+          <i :class="[{'fas fa-long-arrow-alt-down' : !sortedAscendingID}, {'fas fa-long-arrow-alt-up' : sortedAscendingID}]"></i>
+        </button>
+        <button v-on:click='sortByAuthor()' type="button" class="btn btn-light" :class="{'active' : !activeID}">
+          Author
+          <i :class="[{'fas fa-long-arrow-alt-down' : !sortedAscendingAuthor}, {'fas fa-long-arrow-alt-up' : sortedAscendingAuthor}]"></i>
+        </button>
+      </div>   <!-- End of column -->
+      <div class="col">  
+        <button v-on:click="setType('normal')" type="button" class="btn btn-light" :class="{'active' : type === 'normal'}">
+          Normal
+        </button>
+        <button v-on:click="setType('grayscale')" type="button" class="btn btn-light" :class="{'active' : type === 'grayscale'}">
+          Grayscale
+        </button>
+        <button v-on:click="setType('blur')" type="button" class="btn btn-light" :class="{'active' : type === 'blur'}">
+          Blur
+        </button>
+      </div>   <!-- End of column -->
+    </div>   <!-- End of row -->
 
     <div class='row'>
 
@@ -62,6 +66,7 @@ export default class extends Vue {
   public sortedAscendingID: boolean = true;
   public sortedAscendingAuthor: boolean = false;
   public activeID: boolean = true;
+  public type: string = 'normal';
 
   public created() {
     logs.refreshFeed('global').then(() => {
@@ -70,6 +75,10 @@ export default class extends Vue {
   }
   public setType(type: string) {
     logs.setType(type);
+    this.type = type;
+  }
+  public getType() {
+    return logs.getType().toString();
   }
   public sortById() {
     if (this.sortedAscendingID) {

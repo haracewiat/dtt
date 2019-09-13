@@ -4,8 +4,7 @@
         <img :src="log.download_url"/>
         <div class="row">
             <div class="mr-auto author">{{log.author}}</div>
-            <div class="id">{{log.id}}</div>
-            <p v-if="log.id==='1001'">this is id 1001</p>
+            <div class="id btn btn-outline-primary btn-sm pull-xs-right">#{{log.id}}</div>
         </div>
         </router-link>
     </div>
