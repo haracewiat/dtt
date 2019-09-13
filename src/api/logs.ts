@@ -1,6 +1,6 @@
 import { Module, VuexModule, getModule, Mutation, Action } from 'vuex-module-decorators';
 import store from '@/store';
-import { Log, RandomResponse } from '@/api/models';
+import { Log } from '@/api/models';
 import * as api from '@/api/api';
 type FeedType= 'global' | 'random';
 
@@ -13,11 +13,41 @@ type FeedType= 'global' | 'random';
 
 class LogsModule extends VuexModule {
     public feed: Log[] = [];
+    public type: string = 'normal';
+    public size: string = 'square';
 
     @Mutation
     public setFeed(logs: Log[]) {
         this.feed = logs;
     }
+    @Mutation
+    public setType(type: string) {
+        if (this.type === 'normal' && this.type !== type) {
+            this.feed.forEach((log) => {
+                log.download_url = log.download_url + '?' + type;
+            });
+        } else {
+            this.feed.forEach((log) => {
+                log.download_url = log.download_url.replace( /\?.*/g, '');
+            });
+            if (type !== 'normal') {
+                this.feed.forEach((log) => {
+                    log.download_url = log.download_url + '?' + type;
+                });
+            } else {
+                this.feed.forEach((log) => {
+                    log.download_url = log.download_url;
+                });
+            }
+        }
+        this.type = type;
+    }
+
+    @Mutation
+    public setSize(size: string) {
+        this.size = size;
+    }
+
 
     @Action({commit: 'setFeed'})
     public async refreshFeed(feedType: FeedType) {

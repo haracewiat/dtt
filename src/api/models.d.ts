@@ -14,3 +14,8 @@ export interface LogsResponse {
 export interface RandomResponse {
     url: string;
 }
+
+export interface LogsType {
+    size: string;            // square | full
+    type: string;            // grayscale | blur | normal | grayscale&blur
+}

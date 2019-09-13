@@ -9,12 +9,23 @@
       <i :class="[{'fas fa-long-arrow-alt-down' : !sortedAscendingAuthor}, {'fas fa-long-arrow-alt-up' : sortedAscendingAuthor}]"></i>
     </button>
 
+    <p>Select type: </p>
+    <button v-on:click="setType('grayscale')" type="button" class="btn btn-light">
+      Grayscale
+    </button>
+    <button v-on:click="setType('normal')" type="button" class="btn btn-light">
+      Normal
+    </button>
+    <button v-on:click="setType('blur')" type="button" class="btn btn-light">
+      Blur
+    </button>
+
     <div class='row'>
 
       <LogPreview class='card col-md-4'
       v-for="log in feed"
       :log="log"
-      :key="log.id"
+      :key="log.download_url"
       ></LogPreview>
      
     </div>   <!-- End of row -->
@@ -38,7 +49,7 @@ a{
 import { Component, Vue } from 'vue-property-decorator';
 import HelloWorld from '@/components/HelloWorld.vue';
 import LogPreview from '@/components/LogPreview.vue';
-import { LogsResponse, Log } from '../api/models';
+import { LogsResponse, Log, LogsType } from '../api/models';
 import logs from '../api/logs';
 @Component({
   components: {
@@ -56,6 +67,9 @@ export default class extends Vue {
     logs.refreshFeed('global').then(() => {
       this.feed = logs.feed;
     });
+  }
+  public setType(type: string) {
+    logs.setType(type);
   }
   public sortById() {
     if (this.sortedAscendingID) {

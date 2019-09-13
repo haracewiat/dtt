@@ -16,8 +16,8 @@ export async function getRandom() {
 }
 
 export async function getSimilar(id: string) {
-    const response1 = await AppApi.get('/id/' + id + '/500/300?grayscale');
-    const response2 = await AppApi.get('/id/' + id + '/500/300?blur');
-    const response3 = await AppApi.get('/id/' + id + '/500/300?grayscale&blur');
+    // const response1 = await AppApi.get('/id/' + id + '/500/300?grayscale');
+    // const response2 = await AppApi.get('/id/' + id + '/500/300?blur');
+    // const response3 = await AppApi.get('/id/' + id + '/500/300?grayscale&blur');
     // return as an array and display images on the Random page
 }
