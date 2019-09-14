@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <AppBanner></AppBanner>
     <AppNavbar></AppNavbar>
     <router-view></router-view>
     <AppFooter></AppFooter>
@@ -10,10 +11,12 @@
 import { Vue, Component } from 'vue-property-decorator';
 import AppFooter from '@/components/AppFooter.vue';
 import AppNavbar from '@/components/AppNavbar.vue';
+import AppBanner from '@/components/AppBanner.vue';
+import SortingBar from '@/components/SortingBar.vue';
 
 @Component({
   components: {
-    AppFooter, AppNavbar,
+    AppFooter, AppNavbar, AppBanner,
   },
 })
 export default class App extends Vue {

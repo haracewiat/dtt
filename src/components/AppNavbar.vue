@@ -1,6 +1,7 @@
 <template>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top"><div class="container">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+      <div class="container">
     
       <!-- Website Logo -->
       <router-link to="/" class="navbar-brand mb-0 h1">PicLib</router-link>
@@ -12,26 +13,34 @@
 
       <!-- Menu Options-->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <router-link to="/" class="nav-link">Home</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/about" class="nav-link">About</router-link>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categories
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <router-link to="" class="dropdown-item">Full-size pictures</router-link> 
-            <router-link to="" class="dropdown-item">Square pictures</router-link>
-          </div>
-        </li>   
-      </ul>
-    </div>
+        <ul class="navbar-nav mr-auto justify-content-end w-100">
+          <li class="nav-item">
+            <router-link to="/" class="nav-link">Home</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/about" class="nav-link">About</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/random" class="nav-link">Random</router-link>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categories
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <router-link to="" class="dropdown-item">Full-size pictures</router-link> 
+              <router-link to="" class="dropdown-item">Square pictures</router-link>
+            </div>
+          </li>   
+          <li class="nav-item">
+            <router-link to="" class="nav-link">Contact</router-link>
+          </li>
+        </ul>
+      </div>     <!-- End of .navbar-collapse -->
 
-     </div></nav>   <!-- End of #nav -->
+      </div>     <!-- End of .container -->
+    </nav>   <!-- End of nav -->
+
 </template>
 
 <style>

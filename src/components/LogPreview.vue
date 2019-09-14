@@ -1,19 +1,19 @@
 <template>
-    <div class="logPreview">
-        <router-link :to="{name: 'details', params: {log: log, id: log.id}}"> 
-        <img :src="log.download_url"/>
-        <div class="row">
-            <div class="mr-auto author">{{log.author}}</div>
-            <div class="id btn btn-outline-primary btn-sm pull-xs-right">#{{log.id}}</div>
-        </div>
-        </router-link>
+  <router-link :to="{name: 'details', params: {log: log, id: log.id}}"> 
+    <div class="card bg-light" style="width: 20rem">
+      <img :src="log.download_url" class="card-img-top" alt="Lorem Picsum image">
+      <div class="card-body row">
+        <div class="mr-auto author">{{log.author}}</div>
+        <div class="id btn btn-outline-primary btn-sm pull-xs-right">#{{log.id}}</div>
+      </div>
     </div>
-        
+  </router-link>
 </template>
 
 <style>
-.author, .id{
-width: fit-content;
+    .card-img-top {
+    height: 13rem;
+    object-fit: cover;
 }
 </style>
 
