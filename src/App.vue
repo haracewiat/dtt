@@ -7,6 +7,14 @@
   </div>   <!-- End of #app -->
 </template>
 
+<style>
+#app{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+</style>
+
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import AppFooter from '@/components/AppFooter.vue';

@@ -1,7 +1,7 @@
 <template>
-  <section>
-    <div id="banner"  class="container">
-      <h2>DTT Internship Project</h2>
+  <section class="bg-dark">
+    <div id="banner"  class="container py-5">
+      <h2 class="text-light">DTT Internship Project</h2>
     </div>
   </section>
 </template>

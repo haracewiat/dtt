@@ -1,6 +1,6 @@
 <template>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top mb-5">
       <div class="container">
     
       <!-- Website Logo -->

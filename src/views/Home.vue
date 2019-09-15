@@ -1,9 +1,8 @@
 <template>
 <div>
   <SortingBar></SortingBar>
-
-  <div class='container'>
-    <div class='row'>
+  <div class='container cards'>
+    <div class='row justify-content-between'>
 
       <LogPreview class='col-md-4'
       v-for="log in feed"
@@ -22,6 +21,9 @@
 
 a{
   text-decoration: none;
+}
+.cards{
+  min-height: 100vh;
 }
 </style>
 

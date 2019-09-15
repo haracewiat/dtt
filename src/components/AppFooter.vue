@@ -1,6 +1,6 @@
 <template>
     <!-- Footer -->
-<footer class="page-footer font-small mdb-color bg-light pt-4">
+<footer class="page-footer font-small mdb-color bg-light pt-4 mt-5 align-items-end">
 
   <!-- Footer Links -->
   <div class="container text-center text-md-left">
@@ -10,7 +10,7 @@
 
       <!-- Grid column -->
       <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-        <h6 class="text-uppercase mb-4 font-weight-bold">Company name</h6>
+        <h6 class="text-uppercase mb-4 font-weight-bold">PicLib</h6>
         <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
           consectetur
           adipisicing elit.</p>

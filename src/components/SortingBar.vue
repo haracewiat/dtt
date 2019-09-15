@@ -1,8 +1,8 @@
 <template>
-    <div class="container">
-      <div class="row">
+    <div class="container mb-3">
+      <div class="row justify-content-between">
         
-        <div class="col btn-group">
+        <div class="col-md-2 btn-group">
           <button v-on:click='sortById()' type="button" class="btn btn-light" :class="{'active' : activeID}" >
             ID 
             <i :class="[{'fas fa-long-arrow-alt-down' : !sortedAscendingID}, {'fas fa-long-arrow-alt-up' : sortedAscendingID}]"></i>
@@ -13,7 +13,7 @@
           </button>
         </div>   <!-- End of column -->
 
-        <div class="col btn-group">  
+        <div class="col-md-3 btn-group ">  
           <button v-on:click="setType('normal')" type="button" class="btn btn-light" :class="{'active' : type === 'normal'}">
             Normal
           </button>
