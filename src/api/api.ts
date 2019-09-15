@@ -10,6 +10,11 @@ export async function getGlobalFeed() {
     return response.data as LogsResponse;
 }
 
+export async function getPage(page: number) {
+    const response = await AppApi.get('/v2/list?limit=10&page=' + page);
+    return response.data as LogsResponse;
+}
+
 export async function getRandom() {
     const response = await AppApi.get('/500/300');
     return response.request.responseURL as RandomResponse;

@@ -16,6 +16,7 @@ class LogsModule extends VuexModule {
     public similarFeed: string[] = [];
     public type: string = 'normal';
     public size: string = 'square';
+    public currentPage: number = 1;
 
     @Mutation
     public setFeed(logs: Log[]) {
@@ -48,6 +49,24 @@ class LogsModule extends VuexModule {
     public setSize(size: string) {
         this.size = size;
     }
+    @Mutation
+    public setPage(sign: string) {
+        switch (sign) {
+            case '+':
+                if (this.currentPage < 10) {
+                    this.currentPage++;
+                }
+                break;
+            case '-':
+                if (this.currentPage > 1) {
+                    this.currentPage--;
+                }
+                break;
+            default:
+                break;
+        }
+
+    }
 
 
     @Action({commit: 'setFeed'})
@@ -61,6 +80,13 @@ class LogsModule extends VuexModule {
             return random;
         }
     }
+
+    @Action({commit: 'setFeed'})
+    public async updateFeedPage() {
+        const feed = await api.getPage(this.currentPage);
+        return feed;
+    }
+
     @Action({})
     public async getType() {
        return this.type;
