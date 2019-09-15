@@ -28,12 +28,12 @@
               Categories
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <router-link to="" class="dropdown-item">Full-size pictures</router-link> 
-              <router-link to="" class="dropdown-item">Square pictures</router-link>
+              <router-link to="/standard" class="dropdown-item">Full-size pictures</router-link> 
+              <router-link to="/square" class="dropdown-item">Square pictures</router-link>
             </div>
           </li>   
           <li class="nav-item">
-            <router-link to="" class="nav-link">Contact</router-link>
+            <router-link to="/contact" class="nav-link">Contact</router-link>
           </li>
         </ul>
       </div>     <!-- End of .navbar-collapse -->

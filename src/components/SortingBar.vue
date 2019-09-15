@@ -13,7 +13,7 @@
           </button>
         </div>   <!-- End of column -->
 
-        <div class="col-md-3 btn-group ">  
+        <div class="col-md-5 btn-group ">  
           <button v-on:click="setType('normal')" type="button" class="btn btn-light" :class="{'active' : type === 'normal'}">
             Normal
           </button>
@@ -22,6 +22,9 @@
           </button>
           <button v-on:click="setType('blur')" type="button" class="btn btn-light" :class="{'active' : type === 'blur'}">
             Blur
+          </button>
+          <button v-on:click="setType('grayscale&blur')" type="button" class="btn btn-light" :class="{'active' : type === 'grayscale&blur'}">
+            Grayscale &amp; Blur
           </button>
         </div>   <!-- End of column -->
 

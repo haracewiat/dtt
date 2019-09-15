@@ -1,23 +1,26 @@
 <template>
   <router-link :to="{name: 'details', params: {log: log, id: log.id}}"> 
     <div class="card bg-light my-2" style="width: 100%">
-      <!-- <img :src="log.download_url" class="card-img-top" alt="Lorem Picsum image"> --> 
-      <!-- For better performance this will be used for all pictures --> 
       <img src="https://picsum.photos/id/0/5616/3744" class="card-img-top" alt="Lorem Picsum image">
+      <!-- For better performance this will be used for all pictures --> 
+      <!-- <img :src="log.download_url" class="card-img-top" alt="Lorem Picsum image"> --> 
 
-      
-      <div class="card-body row">
-        <div class="mr-auto author">{{log.author}}</div>
-        <div class="id btn btn-outline-primary btn-sm pull-xs-right">#{{log.id}}</div>
+      <div class="card-body row align-items-center mx-1">
+        <span class="mr-auto">{{log.author}}</span>
+        <span class="badge badge-pill badge-secondary">#{{log.id}}</span>
       </div>
     </div>
   </router-link>
 </template>
 
 <style>
-    .card-img-top {
-    height: 13rem;
-    object-fit: cover;
+.card-img-top {
+  height: 13rem;
+  object-fit: cover;
+}
+.badge {
+  font-size: 1rem;
+  font-weight: 500;
 }
 </style>
 

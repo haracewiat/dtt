@@ -13,6 +13,7 @@ type FeedType= 'global' | 'random';
 
 class LogsModule extends VuexModule {
     public feed: Log[] = [];
+    public similarFeed: string[] = [];
     public type: string = 'normal';
     public size: string = 'square';
 
@@ -61,12 +62,13 @@ class LogsModule extends VuexModule {
         }
     }
     @Action({})
-    public async getSimilar(id: string) {
-        const link = await api.getSimilar(id);
-    }
-    @Action({})
     public async getType() {
        return this.type;
+    }
+    @Action({})
+    public async getSimilar(id: string) {
+        const similarFeed = await api.getSimilar(id, this.type);
+        return similarFeed;
     }
 }
 

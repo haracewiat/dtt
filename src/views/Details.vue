@@ -1,8 +1,11 @@
 <template>
   <div class='container'>
-    <div class='row'>
-      <div class="col-md-6">
-        <img style="width:500px;height:auto;" :src="this.$attrs.log.download_url"/>
+    
+    <div class='row justify-content-between main-row'>
+      <div class="col-md-6 h-50">
+        <div class="card">
+          <img  alt="main image" class="card-img-top main-image rounded" :src="this.$attrs.log.download_url"/>
+        </div>
       </div>
       <div class="col-md-6">
         <h1>by {{this.$attrs.log.author}}</h1>
@@ -10,20 +13,24 @@
         <p>Source: {{this.$attrs.log.url}}</p>
         <p>ID: {{this.$attrs.log.id}}</p>
       </div> 
-    <div class="row">
-      <div class="col-md-4 col-sm-6">
-        <img class="small" :src="this.$attrs.log.download_url + '?grayscale'"/>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <img class="small" :src="this.$attrs.log.download_url + '?blur=10'"/>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <img class="small" :src="this.$attrs.log.download_url + '?grayscale&blur=10'"/>
-      </div>
-    </div>
     </div>   <!-- End of row -->
+
+    <div class='row justify-content-between my-5'>
+      <div v-for="url in similarFeed" :key="url" class="col-md-4">
+        <div class="card">
+          <img :src="url" alt="similar image" class="card-img-top rounded">
+        </div>
+      </div>   <!-- End of column -->    
+    </div>   <!-- End of row -->
+
   </div>   <!-- End of container -->
 </template>
+
+<style>
+.main-image{
+  min-height: 20rem;
+}
+</style>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
@@ -39,9 +46,10 @@ import logs from '../api/logs';
   },
 })
 export default class extends Vue {
+public similarFeed: object = [];
 
   public async created() {
-    // catch similar photos
+    this.similarFeed = await logs.getSimilar(this.$attrs.id);
   }
 }
 </script> 

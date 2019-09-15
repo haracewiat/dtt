@@ -22,6 +22,21 @@ export default new Router({
       component: () => import('./views/Random.vue'),
     },
     {
+      path: '/square',
+      name: 'square',
+      component: () => import('./views/SquareSize.vue'),
+    },
+    {
+      path: '/standard',
+      name: 'standard',
+      component: () => import('./views/StandardSize.vue'),
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: () => import('./views/Contact.vue'),
+    },
+    {
       path: '/:id',
       name: 'details',
       props: true,

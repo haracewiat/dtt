@@ -11,6 +11,10 @@ export interface LogsResponse {
     entries?: Log[] | null;
 }
 
+export interface SimilarResponse {
+    urls?: string[] | null;
+}
+
 export interface RandomResponse {
     url: string;
 }

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LogsResponse, RandomResponse } from './models';
+import { LogsResponse, RandomResponse, SimilarResponse } from './models';
 
 export const AppApi = axios.create({
     baseURL: 'https://picsum.photos',
@@ -15,9 +15,22 @@ export async function getRandom() {
     return response.request.responseURL as RandomResponse;
 }
 
-export async function getSimilar(id: string) {
-    // const response1 = await AppApi.get('/id/' + id + '/500/300?grayscale');
-    // const response2 = await AppApi.get('/id/' + id + '/500/300?blur');
-    // const response3 = await AppApi.get('/id/' + id + '/500/300?grayscale&blur');
-    // return as an array and display images on the Random page
+export async function getSimilar(id: string, type: string) {
+    const allTypes: string[] = ['normal', 'blur', 'grayscale', 'grayscale&blur'];
+    const similarTypes: string[] = allTypes.filter( (x)  => x !== type );
+    const urls: string[] = [];
+    let response;
+
+    for (const entry of similarTypes) {
+        if (entry !== 'normal') {
+            response = await AppApi.get('/id/' + id + '/500/300?' + entry);
+        } else {
+            response = await AppApi.get('/id/' + id + '/500/300');
+        }
+
+        if (response.config.url) {
+            urls.push(response.config.url);
+        }
+    }
+    return urls as SimilarResponse;
 }

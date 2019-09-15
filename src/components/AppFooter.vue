@@ -1,6 +1,6 @@
 <template>
     <!-- Footer -->
-<footer class="page-footer font-small mdb-color bg-light pt-4 mt-5 align-items-end">
+<footer class="page-footer font-small mdb-color bg-light pt-4 align-items-end">
 
   <!-- Footer Links -->
   <div class="container text-center text-md-left">
@@ -136,6 +136,12 @@
 <!-- Footer -->
 
 </template>
+
+<style>
+footer{
+   margin-top: auto!important;
+}
+</style>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
