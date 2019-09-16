@@ -46,8 +46,14 @@ class LogsModule extends VuexModule {
     }
 
     @Mutation
-    public setSize(size: string) {
-        this.size = size;
+    public setSize(width: string, height: string) {
+
+        this.feed.forEach((log) => {
+            log.download_url = log.download_url.replace( /\d+\/\d+$/g, '');
+        });
+        this.feed.forEach((log) => {
+            log.download_url = log.download_url + width + '/' + height;
+        });
     }
     @Mutation
     public setPage(sign: string) {

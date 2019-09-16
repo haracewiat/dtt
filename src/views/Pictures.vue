@@ -1,6 +1,17 @@
 <template>
 <div>
-  This is a home page
+  <SortingBar></SortingBar>
+  <div class='container cards'>
+    <div class='row justify-content-between mb-5 pb-5'>
+
+      <LogPreview class='col-md-4'
+      v-for="log in feed"
+      :log="log"
+      :key="log.download_url"
+      ></LogPreview>
+     
+    </div>   <!-- End of row -->    
+  </div>   <!-- End of container -->
   
 </div>
 

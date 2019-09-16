@@ -28,8 +28,10 @@
               Categories
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <router-link to="/standard" class="dropdown-item">Full-size pictures</router-link> 
-              <router-link to="/square" class="dropdown-item">Square pictures</router-link>
+              <span v-on:click="setType('normal')"><router-link to="/normal" class="dropdown-item">Normal</router-link></span>
+              <span v-on:click="setType('grayscale')"><router-link to="/grayscale" class="dropdown-item">Grayscale</router-link></span>
+              <span v-on:click="setType('blur')"><router-link to="/blur" class="dropdown-item">Blur</router-link></span>
+              <span v-on:click="setType('grayscale&blur')"><router-link to="/grayscale&blur" class="dropdown-item">Grayscale &amp; Blur</router-link></span>
             </div>
           </li>   
           <li class="nav-item">
@@ -68,7 +70,17 @@ a.router-link-exact-active {
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
+import logs from '../api/logs';
 @Component
 export default class AppNavbar extends Vue {
+  public type: string = 'normal';
+
+  public setType(type: string) {
+    logs.setType(type);
+    this.type = type;
+  }
+  public getType() {
+    return logs.getType().toString();
+  }
 }
 </script> 

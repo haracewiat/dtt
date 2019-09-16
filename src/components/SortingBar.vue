@@ -1,7 +1,6 @@
 <template>
     <div class="container mb-3">
-      <div class="row justify-content-between">
-        
+      <div class="row justify-content-between">        
         <div class="col-md-2 btn-group">
           <button v-on:click='sortById()' type="button" class="btn btn-light" :class="{'active' : activeID}" >
             ID 
@@ -12,22 +11,6 @@
             <i :class="[{'fas fa-long-arrow-alt-down' : !sortedAscendingAuthor}, {'fas fa-long-arrow-alt-up' : sortedAscendingAuthor}]"></i>
           </button>
         </div>   <!-- End of column -->
-
-        <div class="col-md-5 btn-group ">  
-          <button v-on:click="setType('normal')" type="button" class="btn btn-light" :class="{'active' : type === 'normal'}">
-            Normal
-          </button>
-          <button v-on:click="setType('grayscale')" type="button" class="btn btn-light" :class="{'active' : type === 'grayscale'}">
-            Grayscale
-          </button>
-          <button v-on:click="setType('blur')" type="button" class="btn btn-light" :class="{'active' : type === 'blur'}">
-            Blur
-          </button>
-          <button v-on:click="setType('grayscale&blur')" type="button" class="btn btn-light" :class="{'active' : type === 'grayscale&blur'}">
-            Grayscale &amp; Blur
-          </button>
-        </div>   <!-- End of column -->
-
       </div>   <!-- End of row -->
     </div>   <!-- End of container -->
 </template>

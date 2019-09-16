@@ -1,9 +1,7 @@
 <template>
   <router-link :to="{name: 'details', params: {log: log, id: log.id}}"> 
     <div class="card bg-light my-2" style="width: 100%">
-      <img src="https://picsum.photos/id/0/5616/3744" class="card-img-top" alt="Lorem Picsum image">
-      <!-- For better performance this will be used for all pictures --> 
-      <!-- <img :src="log.download_url" class="card-img-top" alt="Lorem Picsum image"> --> 
+      <img :src="log.download_url" class="card-img-top" alt="Lorem Picsum image">
 
       <div class="card-body row align-items-center mx-1">
         <span class="mr-auto">{{log.author}}</span>

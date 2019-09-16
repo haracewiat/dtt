@@ -22,14 +22,24 @@ export default new Router({
       component: () => import('./views/Random.vue'),
     },
     {
-      path: '/square',
-      name: 'square',
-      component: () => import('./views/SquareSize.vue'),
+      path: '/grayscale',
+      name: 'grayscale',
+      component: () => import('./views/Pictures.vue'),
     },
     {
-      path: '/standard',
-      name: 'standard',
-      component: () => import('./views/StandardSize.vue'),
+      path: '/normal',
+      name: 'normal',
+      component: () => import('./views/Pictures.vue'),
+    },
+    {
+      path: '/grayscale&blur',
+      name: 'grayscale&blur',
+      component: () => import('./views/Pictures.vue'),
+    },
+    {
+      path: '/blur',
+      name: 'blur',
+      component: () => import('./views/Pictures.vue'),
     },
     {
       path: '/contact',

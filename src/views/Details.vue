@@ -1,7 +1,7 @@
 <template>
   <div class='container'>
     
-    <div class='row justify-content-between main-row'>
+    <div class='row justify-content-between main-row align-items-center'>
       <div class="col-md-6 h-50">
         <div class="card">
           <img  alt="main image" class="card-img-top main-image rounded" :src="this.$attrs.log.download_url"/>
@@ -11,7 +11,7 @@
         <h1>by {{this.$attrs.log.author}}</h1>
         <p>Original size: {{this.$attrs.log.width}} x {{this.$attrs.log.height}}</p>
         <p>Source: {{this.$attrs.log.url}}</p>
-        <p>ID: {{this.$attrs.log.id}}</p>
+        <span class="badge badge-pill badge-secondary">#{{this.$attrs.log.id}}</span>
       </div> 
     </div>   <!-- End of row -->
 
@@ -29,6 +29,10 @@
 <style>
 .main-image{
   min-height: 20rem;
+}
+.badge {
+  font-size: 1rem;
+  font-weight: 500;
 }
 </style>
 

@@ -11,9 +11,7 @@
       <!-- Grid column -->
       <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
         <h6 class="text-uppercase mb-4 font-weight-bold">PicLib</h6>
-        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-          consectetur
-          adipisicing elit.</p>
+        <p>PicLib in a website based on the Lorem Picsum's public API. </p>
       </div>
       <!-- Grid column -->
 
@@ -21,18 +19,18 @@
 
       <!-- Grid column -->
       <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-        <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+        <h6 class="text-uppercase mb-4 font-weight-bold">Categories</h6>
         <p>
-          <a href="#!">MDBootstrap</a>
+          <a href="#!">Normal</a>
         </p>
         <p>
-          <a href="#!">MDWordPress</a>
+          <a href="#!">Grayscale</a>
         </p>
         <p>
-          <a href="#!">BrandFlow</a>
+          <a href="#!">Blur</a>
         </p>
         <p>
-          <a href="#!">Bootstrap Angular</a>
+          <a href="#!">Grayscale &amp; Blur</a>
         </p>
       </div>
       <!-- Grid column -->
@@ -43,16 +41,16 @@
       <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
         <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
         <p>
-          <a href="#!">Your Account</a>
+          <a href="#!">Home</a>
         </p>
         <p>
-          <a href="#!">Become an Affiliate</a>
+          <a href="#!">Random</a>
         </p>
         <p>
-          <a href="#!">Shipping Rates</a>
+          <a href="#!">About</a>
         </p>
         <p>
-          <a href="#!">Help</a>
+          <a href="#!">Contact</a>
         </p>
       </div>
 
@@ -63,13 +61,11 @@
       <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
         <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
         <p>
-          <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+          <i class="fas fa-home mr-3"></i> Amsterdam, NL</p>
         <p>
-          <i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
+          <i class="fas fa-envelope mr-3"></i> info@piclib.com</p>
         <p>
-          <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-        <p>
-          <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+          <i class="fas fa-phone mr-3"></i> + 31 123 456 789</p>
       </div>
       <!-- Grid column -->
 
@@ -86,8 +82,8 @@
 
         <!--Copyright-->
         <p class="text-center text-md-left">© 2018 Copyright:
-          <a href="https://mdbootstrap.com/education/bootstrap/">
-            <strong> MDBootstrap.com</strong>
+          <a href="https://picsum.photos">
+            <strong> picsum.photos</strong>
           </a>
         </p>
 
