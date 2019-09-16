@@ -1,8 +1,10 @@
 <template>
-  <div class='container'>
+  <div class='container mb-5'>
     <div class='row  justify-content-around'>
       <div class="col-md-6">
+        <router-link :to="{name: 'details', params: {log: this.log, id: this.id}}">
           <img :src='url'>
+        </router-link>
       </div> 
       <div class="col-md-6 align-self-center">
         <div class="row justify-content-md-center">
@@ -57,16 +59,18 @@ import logs from '../api/logs';
 export default class extends Vue {
   public url: string = '';
   public feed: Log[] = [];
-  public id: string = '';
+  public id: string = '0';
+  public log: Log = {} as Log;
 
   public async created() {
   // call function shuffle to avoid repeats
     const randomUrl = await logs.refreshFeed('random');
-    if (randomUrl !== undefined) {
+    if (randomUrl) {
         this.url = randomUrl.toString();
         this.id = this.url.replace( /\D+/g, '');
         this.id = this.id.replace( /500300/g, '');
         logs.getSimilar(this.id);
+        this.getLog(this.id);
     }
   }
   public async shuffle() {
@@ -75,6 +79,10 @@ export default class extends Vue {
     if (randomUrl !== undefined) {
         this.url = randomUrl.toString();
     }
+  }
+
+  public async getLog(id: string) {
+    this.log = await logs.getInformation(id);
   }
 }
 </script> 

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LogsResponse, RandomResponse, SimilarResponse } from './models';
+import { LogsResponse, RandomResponse, SimilarResponse, Log } from './models';
 
 export const AppApi = axios.create({
     baseURL: 'https://picsum.photos',
@@ -18,6 +18,11 @@ export async function getPage(page: number) {
 export async function getRandom() {
     const response = await AppApi.get('/500/300');
     return response.request.responseURL as RandomResponse;
+}
+
+export async function getInformation(id: string) {
+    const response = await AppApi.get('/id/' + id + '/info');
+    return response.data as Log;
 }
 
 export async function getSimilar(id: string, type: string) {

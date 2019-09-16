@@ -88,6 +88,12 @@ class LogsModule extends VuexModule {
     }
 
     @Action({})
+    public async getInformation(id: string) {
+        const log = await api.getInformation(id);
+        return log;
+    }
+
+    @Action({})
     public async getType() {
        return this.type;
     }
