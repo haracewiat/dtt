@@ -3,7 +3,7 @@
     <div class='row  justify-content-around'>
       <div class="col-md-6">
         <router-link :to="{name: 'details', params: {log: this.log, id: this.id}}">
-          <img :src='url'>
+          <img :src='url' class="rounded shadow-lg">
         </router-link>
       </div> 
       <div class="col-md-6 align-self-center">
@@ -28,7 +28,7 @@
           </div>
         </div>
         <div class="row justify-content-md-center align-self-end">
-          <button v-on:click='shuffle()' type="button" class="btn btn-success">Shuffle!</button>
+          <button v-on:click='shuffle()' type="button" class="btn btn-success shadow">Shuffle!</button>
         </div>
       </div>   
     </div>   <!-- End of row -->
@@ -63,12 +63,10 @@ export default class extends Vue {
   public log: Log = {} as Log;
 
   public async created() {
-  // call function shuffle to avoid repeats
     const randomUrl = await logs.refreshFeed('random');
     this.shuffle();
   }
   public async shuffle() {
-    // further function to make it reusable
     const randomUrl = await logs.refreshFeed('random');
     if (randomUrl) {
         this.url = randomUrl.toString();

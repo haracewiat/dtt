@@ -106,6 +106,7 @@ class LogsModule extends VuexModule {
     public async getType() {
        return this.type;
     }
+
     @Action({})
     public async getSimilar(id: string) {
         const similarFeed = await api.getSimilar(id, this.type);

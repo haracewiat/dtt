@@ -28,12 +28,12 @@
     </div>   <!-- End of row -->   
     <div class="row justify-content-md-center mb-5">
       <router-link to="/random">
-        <button type="button" class="btn badge-pill badge-success btn-lg rounded-50 mx-3">
+        <button type="button" class="btn badge-pill text-light bg-success btn-lg rounded-50 mx-3 shadow">
           Random
         </button>
       </router-link>
       <span v-on:click="setType('normal')"><router-link to="/normal">
-        <button type="button" class="btn badge-pill badge-success btn-lg rounded-50 mx-3">
+        <button type="button" class="btn badge-pill text-light bg-success btn-lg rounded-50 mx-3 shadow">
           See all
           <i class="fas fa-long-arrow-alt-right"></i>
         </button>
@@ -60,11 +60,5 @@ import { LogsResponse, Log, LogsType } from '../api/models';
 import logs from '../api/logs';
 @Component
 export default class extends Vue {
-  public type: string = 'normal';
-
-  public setType(type: string) {
-    logs.setType(type);
-    this.type = type;
-  }
 }
 </script> 

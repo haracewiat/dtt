@@ -45,9 +45,13 @@ export default class extends Vue {
   public feed: Log[] = [];
 
 
-  public created() {
+  public async created() {
+    const type = await logs.getType();
     logs.refreshFeed('global').then(() => {
       this.feed = logs.feed;
+      if (type !== 'normal') {
+        logs.setType(type);
+      }
     });
   }
 

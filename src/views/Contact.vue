@@ -1,6 +1,6 @@
 <template>
   <div class="container" style="min-height:70vh">
-    <div class="row">
+    <div class="row my-5">
       <div class="col">
         <h3>Any questions?</h3>
         <p>Feel free to get in touch with us!</p>
