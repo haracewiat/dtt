@@ -1,5 +1,5 @@
 <template>
-  <div class='container mb-5'>
+  <div class='container mb-5 py-5'>
     <div class='row  justify-content-around'>
       <div class="col-md-6">
         <router-link :to="{name: 'details', params: {log: this.log, id: this.id}}">

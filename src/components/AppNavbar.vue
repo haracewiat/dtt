@@ -62,7 +62,7 @@
   color: #2c3e50;
 }
 
-.navbar a.router-link-exact-active {
+.navbar-collapse a.router-link-exact-active {
   color: #42b983;
 }
 </style>
