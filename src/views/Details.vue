@@ -1,6 +1,5 @@
 <template>
-  <div class='container'>
-    
+  <div class='container' style="min-height:80vh">    
     <div class='row justify-content-between main-row align-items-center'>
       <div class="col-md-6 h-50">
         <div class="card">
@@ -18,7 +17,7 @@
     <div class='row justify-content-between my-5'>
       <div v-for="url in similarFeed" :key="url" class="col-md-4">
         <div class="card">
-          <img :src="url" alt="similar image" class="card-img-top rounded">
+          <img :src="url" alt="similar image" class="card-img-top rounded shadow-lg">
         </div>
       </div>   <!-- End of column -->    
     </div>   <!-- End of row -->

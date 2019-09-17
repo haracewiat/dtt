@@ -65,19 +65,17 @@ export default class extends Vue {
   public async created() {
   // call function shuffle to avoid repeats
     const randomUrl = await logs.refreshFeed('random');
+    this.shuffle();
+  }
+  public async shuffle() {
+    // further function to make it reusable
+    const randomUrl = await logs.refreshFeed('random');
     if (randomUrl) {
         this.url = randomUrl.toString();
         this.id = this.url.replace( /\D+/g, '');
         this.id = this.id.replace( /500300/g, '');
         logs.getSimilar(this.id);
         this.getLog(this.id);
-    }
-  }
-  public async shuffle() {
-    // further function to make it reusable
-    const randomUrl = await logs.refreshFeed('random');
-    if (randomUrl !== undefined) {
-        this.url = randomUrl.toString();
     }
   }
 
