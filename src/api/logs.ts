@@ -47,7 +47,6 @@ class LogsModule extends VuexModule {
 
     @Mutation
     public setSize(width: string, height: string) {
-
         this.feed.forEach((log) => {
             log.download_url = log.download_url.replace( /\d+\/\d+$/g, '');
         });
@@ -55,6 +54,7 @@ class LogsModule extends VuexModule {
             log.download_url = log.download_url + width + '/' + height;
         });
     }
+
     @Mutation
     public setPage(sign: string) {
         switch (sign) {
@@ -79,6 +79,9 @@ class LogsModule extends VuexModule {
     public async refreshFeed(feedType: FeedType) {
         if (feedType === 'global') {
             const feed = await api.getGlobalFeed();
+            if (feed.entries) {
+                // this.setSize('500', '300');
+            }
             return feed;
         }
         if (feedType === 'random') {

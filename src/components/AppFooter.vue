@@ -11,7 +11,8 @@
       <!-- Grid column -->
       <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
         <h6 class="text-uppercase mb-4 font-weight-bold">PicLib</h6>
-        <p>PicLib in a website based on the Lorem Picsum's public API. </p>
+        <p>PicLib is a website based on the Lorem Picsum's public API. </p>
+        <p>Choose which picture and category you like best - and if you can't decide, try the randomizer option!</p>
       </div>
       <!-- Grid column -->
 
@@ -20,17 +21,17 @@
       <!-- Grid column -->
       <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
         <h6 class="text-uppercase mb-4 font-weight-bold">Categories</h6>
-        <p>
-          <a href="#!">Normal</a>
+        <p v-on:click="setType('normal')">
+          <router-link to="/normal">Normal</router-link>
         </p>
-        <p>
-          <a href="#!">Grayscale</a>
+        <p v-on:click="setType('grayscale')">
+          <router-link to="/grayscale">Grayscale</router-link>
         </p>
-        <p>
-          <a href="#!">Blur</a>
+        <p v-on:click="setType('blur')">
+          <router-link to="/blur">Blur</router-link>
         </p>
-        <p>
-          <a href="#!">Grayscale &amp; Blur</a>
+        <p v-on:click="setType('grayscale&blur')">
+          <router-link to="/grayscale&blur">Grayscale &amp; Blur</router-link>
         </p>
       </div>
       <!-- Grid column -->
@@ -41,16 +42,16 @@
       <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
         <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
         <p>
-          <a href="#!">Home</a>
+          <router-link to="/">Home</router-link>
         </p>
         <p>
-          <a href="#!">Random</a>
+          <router-link to="/random">Random</router-link>
         </p>
         <p>
-          <a href="#!">About</a>
+          <router-link to="/about">About</router-link>
         </p>
         <p>
-          <a href="#!">Contact</a>
+          <router-link to="/contact">Contact</router-link>
         </p>
       </div>
 
@@ -90,37 +91,6 @@
       </div>
       <!-- Grid column -->
 
-      <!-- Grid column -->
-      <div class="col-md-5 col-lg-4 ml-lg-0">
-
-        <!-- Social buttons -->
-        <div class="text-center text-md-right">
-          <ul class="list-unstyled list-inline">
-            <li class="list-inline-item">
-              <a class="btn-floating btn-sm rgba-white-slight mx-1">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn-floating btn-sm rgba-white-slight mx-1">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn-floating btn-sm rgba-white-slight mx-1">
-                <i class="fab fa-google-plus-g"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn-floating btn-sm rgba-white-slight mx-1">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-      <!-- Grid column -->
 
     </div>
     <!-- Grid row -->
@@ -141,7 +111,17 @@ footer{
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
+import logs from '../api/logs';
 @Component
 export default class AppFooter extends Vue {
+  public type: string = 'normal';
+
+  public setType(type: string) {
+    logs.setType(type);
+    this.type = type;
+  }
+  public getType() {
+    return logs.getType().toString();
+  }
 }
 </script> 

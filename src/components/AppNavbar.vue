@@ -20,9 +20,6 @@
           <li class="nav-item">
             <router-link to="/about" class="nav-link">About</router-link>
           </li>
-          <li class="nav-item">
-            <router-link to="/random" class="nav-link">Random</router-link>
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Categories
@@ -34,6 +31,9 @@
               <span v-on:click="setType('grayscale&blur')"><router-link to="/grayscale&blur" class="dropdown-item">Grayscale &amp; Blur</router-link></span>
             </div>
           </li>   
+          <li class="nav-item">
+            <router-link to="/random" class="nav-link">Random</router-link>
+          </li>
           <li class="nav-item">
             <router-link to="/contact" class="nav-link">Contact</router-link>
           </li>
@@ -62,7 +62,7 @@
   color: #2c3e50;
 }
 
-a.router-link-exact-active {
+.navbar a.router-link-exact-active {
   color: #42b983;
 }
 </style>
