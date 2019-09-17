@@ -1,16 +1,44 @@
 <template>
-<div class='container cards'>
-    <div class='row justify-content-between mb-5 pb-5'>
+  <div class='container cards'>
+    <div class="row">
+      <div class="col">
+        <h2>Welcome to PicLib!</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col my-5 mx-5 px-5">
+        <p style="text-align:justify">Have a look at out photo library and pick you favourite picture! Choose between full colour, grayscale, blur and grayscale&amp;blur
+           categories! Each photo is available in all 4 versions, so it's up to you which one you choose.
+        </p>
+        <p style="text-align:justify">
+           Feeling overwhelmed with the choice? No problem! You can use the Random tab to let us pick something for you.
+        </p>
+      </div>
+    </div>
+    <div class='row justify-content-between pb-5'>
       <div class="col-md-4">
-        <img src="https://picsum.photos/500/300?random=1" class="card-img-top" alt="Lorem Picsum image">
+        <img src="https://picsum.photos/500/300?random=1" class="card-img-top rounded shadow-lg" alt="Lorem Picsum image">
       </div>
       <div class="col-md-4">
-        <img src="https://picsum.photos/500/300?random=2" class="card-img-top" alt="Lorem Picsum image">
+        <img src="https://picsum.photos/500/300?random=2" class="card-img-top rounded shadow-lg" alt="Lorem Picsum image">
       </div>
       <div class="col-md-4">
-        <img src="https://picsum.photos/500/300?random=3" class="card-img-top" alt="Lorem Picsum image">
+        <img src="https://picsum.photos/500/300?random=3" class="card-img-top rounded shadow-lg" alt="Lorem Picsum image">
       </div>        
-    </div>   <!-- End of row -->    
+    </div>   <!-- End of row -->   
+    <div class="row justify-content-md-center mb-5">
+      <router-link to="/random">
+        <button type="button" class="btn badge-pill badge-success btn-lg rounded-50 mx-3">
+          Random
+        </button>
+      </router-link>
+      <span v-on:click="setType('normal')"><router-link to="/normal">
+        <button type="button" class="btn badge-pill badge-success btn-lg rounded-50 mx-3">
+          See all
+          <i class="fas fa-long-arrow-alt-right"></i>
+        </button>
+      </router-link></span>
+    </div> 
   </div>   <!-- End of container -->  
 </template>
 
@@ -32,5 +60,11 @@ import { LogsResponse, Log, LogsType } from '../api/models';
 import logs from '../api/logs';
 @Component
 export default class extends Vue {
+  public type: string = 'normal';
+
+  public setType(type: string) {
+    logs.setType(type);
+    this.type = type;
+  }
 }
 </script> 
