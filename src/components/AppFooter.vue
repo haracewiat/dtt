@@ -114,14 +114,15 @@ import { Vue, Component } from 'vue-property-decorator';
 import logs from '../api/logs';
 @Component
 export default class AppFooter extends Vue {
-  public type: string = 'normal';
+  public type: string = '';
+
+  public async created() {
+    this.type = await logs.getType();
+  }
 
   public setType(type: string) {
     logs.setType(type);
     this.type = type;
-  }
-  public getType() {
-    return logs.getType().toString();
   }
 }
 </script> 
