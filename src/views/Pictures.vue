@@ -12,7 +12,7 @@
      
     </div>   <!-- End of row -->    
   </div>   <!-- End of container -->
-  
+  <ChangePageBar></ChangePageBar>
 </div>
 
   
@@ -32,6 +32,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import HelloWorld from '@/components/HelloWorld.vue';
 import LogPreview from '@/components/LogPreview.vue';
 import SortingBar from '@/components/SortingBar.vue';
+import ChangePageBar from '@/components/ChangePageBar.vue';
 import { LogsResponse, Log, LogsType } from '../api/models';
 import logs from '../api/logs';
 @Component({
