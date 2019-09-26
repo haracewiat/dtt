@@ -40,6 +40,7 @@ import logs from '../api/logs';
     HelloWorld,
     LogPreview,
     SortingBar,
+    ChangePageBar,
   },
 })
 export default class extends Vue {

@@ -112,6 +112,12 @@ class LogsModule extends VuexModule {
         const similarFeed = await api.getSimilar(id, this.type);
         return similarFeed;
     }
+
+    @Action({})
+    public async getRandomArray(amount: number) {
+        const randomArray = await api.getRandomArray(amount);
+        return randomArray;
+    }
 }
 
 export default getModule(LogsModule);

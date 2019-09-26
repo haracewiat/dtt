@@ -20,6 +20,20 @@ export async function getRandom() {
     return response.request.responseURL as RandomResponse;
 }
 
+export async function getRandomArray(elements: number) {
+    const array: string[] = [];
+    let id: string = '';
+
+    for (let i = 0; i < elements; i ++) {
+        const response = await AppApi.get('/500/300');
+        const url = response.request.responseURL;
+        id = url.replace( /\D+/g, '');
+        id = id.replace( /500300/g, '');
+        array[i] = id;
+    }
+    return array;
+}
+
 export async function getInformation(id: string) {
     const response = await AppApi.get('/id/' + id + '/info');
     return response.data as Log;

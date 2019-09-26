@@ -16,15 +16,11 @@
       </div>
     </div>
     <div class='row justify-content-between pb-5'>
-      <div class="col-md-4">
-        <img src="https://picsum.photos/500/300?random=1" class="card-img-top rounded shadow-lg" alt="Lorem Picsum image">
+      <div v-for="id in exampleLogs" :id="id" :key="id" class="col-md-4">
+        <router-link :to="{name: 'details', params: {log: getLog(id), id: id}}">
+          <img :src="'https://picsum.photos/id/' + id + '/500/300'" class="card-img-top rounded shadow-lg" alt="Lorem Picsum image">
+        </router-link>
       </div>
-      <div class="col-md-4">
-        <img src="https://picsum.photos/500/300?random=2" class="card-img-top rounded shadow-lg" alt="Lorem Picsum image">
-      </div>
-      <div class="col-md-4">
-        <img src="https://picsum.photos/500/300?random=3" class="card-img-top rounded shadow-lg" alt="Lorem Picsum image">
-      </div>        
     </div>   <!-- End of row -->   
     <div class="row justify-content-md-center mb-5">
       <router-link to="/random">
@@ -60,5 +56,16 @@ import { LogsResponse, Log, LogsType } from '../api/models';
 import logs from '../api/logs';
 @Component
 export default class extends Vue {
+  public exampleLogs: string[] = [];
+  public log: Log = {} as Log;
+
+  public async created() {
+    this.exampleLogs = await logs.getRandomArray(3);
+  }
+
+  public async getLog(id: string) {
+    this.log = await logs.getInformation(id);
+    return this.log;
+  }
 }
 </script> 
