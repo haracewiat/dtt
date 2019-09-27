@@ -17,7 +17,7 @@
     </div>
     <div class='row justify-content-between pb-5'>
       <div v-for="id in exampleLogs" :id="id" :key="id" class="col-md-4">
-        <router-link :to="{name: 'details', params: {log: getLog(id), id: id}}">
+        <router-link :to="{name: 'details', params: {id: id}}">
           <img :src="'https://picsum.photos/id/' + id + '/500/300'" class="card-img-top rounded shadow-lg" alt="Lorem Picsum image">
         </router-link>
       </div>
@@ -57,15 +57,9 @@ import logs from '../api/logs';
 @Component
 export default class extends Vue {
   public exampleLogs: string[] = [];
-  public log: Log = {} as Log;
 
   public async created() {
     this.exampleLogs = await logs.getRandomArray(3);
-  }
-
-  public async getLog(id: string) {
-    this.log = await logs.getInformation(id);
-    return this.log;
   }
 }
 </script> 
