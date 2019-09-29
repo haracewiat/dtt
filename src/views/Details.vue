@@ -3,14 +3,14 @@
     <div class='row justify-content-between main-row align-items-center'>
       <div class="col-md-6 h-50">
         <div class="card">
-          <img  alt="main image" class="card-img-top main-image rounded" :src="log.download_url"/>
+          <img  alt="main image" class="card-img-top main-image rounded" :src="this.$attrs.log.download_url"/>
         </div>
       </div>
       <div class="col-md-6">
-        <h1>by {{log.author}}</h1>
-        <p>Original size: {{log.width}} x {{log.height}}</p>
-        <p>Source: {{log.url}}</p>
-        <span class="badge badge-pill badge-secondary">#{{log.id}}</span>
+        <h1>by {{this.$attrs.log.author}}</h1>
+        <p>Original size: {{this.$attrs.log.width}} x {{this.$attrs.log.height}}</p>
+        <p>Source: {{this.$attrs.log.url}}</p>
+        <span class="badge badge-pill badge-secondary">#{{this.$attrs.log.id}}</span>
       </div> 
     </div>   <!-- End of row -->
 
@@ -50,11 +50,9 @@ import logs from '../api/logs';
 })
 export default class extends Vue {
 public similarFeed: object = [];
-public log: Log = {} as Log;
 
   public async created() {
     this.similarFeed = await logs.getSimilar(this.$attrs.id);
-    this.log = await logs.getInformation(this.$attrs.id);
   }
 }
 </script> 

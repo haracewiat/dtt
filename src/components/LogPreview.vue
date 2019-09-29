@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{name: 'details', params: {id: log.id}}"> 
+  <router-link :to="{name: 'details', params: {log: log, id: log.id}}"> 
     <div class="card bg-light my-2" style="width: 100%">
       <img :src="log.download_url" class="card-img-top" alt="Lorem Picsum image">
 
